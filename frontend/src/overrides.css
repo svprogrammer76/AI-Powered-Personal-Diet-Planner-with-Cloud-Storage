@@ -1,0 +1,2 @@
+.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.stat-button{cursor:pointer;text-align:left;color:inherit}.stat-button:hover{border-color:#a9bda8;background:#fbfcf8}.plan-actions{display:flex;justify-content:flex-end;gap:18px;padding-top:12px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-actions{justify-content:flex-start}}

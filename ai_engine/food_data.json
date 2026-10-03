@@ -1,0 +1,20 @@
+{
+  "vegetarian": {
+    "breakfast": ["Oats with milk, banana, and nuts", "Vegetable poha with yogurt"],
+    "lunch": ["Rice, dal, mixed vegetables, and salad", "Whole-grain roti with chickpea curry and vegetables"],
+    "snack": ["Fruit with plain yogurt", "Roasted chickpeas and fruit"],
+    "dinner": ["Vegetable khichdi with yogurt", "Paneer and vegetable stir-fry with rice"]
+  },
+  "vegan": {
+    "breakfast": ["Oats with fortified soy drink, banana, and seeds", "Tofu scramble with whole-grain toast"],
+    "lunch": ["Rice, lentil dal, vegetables, and salad", "Whole-grain roti with chickpea curry and vegetables"],
+    "snack": ["Fruit with a small handful of nuts", "Roasted chickpeas and fruit"],
+    "dinner": ["Vegetable and lentil khichdi", "Tofu and vegetable stir-fry with rice"]
+  },
+  "general": {
+    "breakfast": ["Oats with milk, fruit, and nuts", "Egg and vegetable whole-grain toast"],
+    "lunch": ["Rice, dal, mixed vegetables, and salad", "Whole-grain roti with chicken or chickpea curry and vegetables"],
+    "snack": ["Fruit with plain yogurt", "Roasted chickpeas and fruit"],
+    "dinner": ["Vegetable khichdi with a side of yogurt", "Grilled fish or tofu with vegetables and rice"]
+  }
+}
