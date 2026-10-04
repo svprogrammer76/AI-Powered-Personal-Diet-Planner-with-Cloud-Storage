@@ -196,21 +196,6 @@ The architecture and interview-ready scaling scenarios are described in [docs/ar
 
 See [docs/project-report.md](docs/project-report.md), [docs/proof-plan.md](docs/proof-plan.md), and [docs/screenshots.md](docs/screenshots.md) for report, GitHub timeline, and proof checklist.
 
-## GitHub strategy
-
-Suggested repository name: `AI-Powered-Personal-Diet-Planner-Cloud`. Description: “Cloud-based AI-powered personal diet planning application with authentication, personalized recommendation generation, cloud database integration, object storage, and scalable deployment architecture.” Suggested topics: `cloud-computing`, `artificial-intelligence`, `python`, `fastapi`, `react`, `cloud-storage`, `supabase`, `database`, `rest-api`, `full-stack`, `cloud-application`.
-
-```bash
-git init
-git add .
-git commit -m "Initialize cloud diet planner project"
-git branch -M main
-git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
-git push -u origin main
-```
-
-Create honest, incremental commits while doing the work, e.g. `Create cloud application architecture`, `Add user authentication`, `Implement user profile management`, `Add AI diet recommendation engine`, `Implement diet plan REST API`, `Integrate cloud database`, `Add cloud object storage`, `Build user dashboard`, `Add AI fallback mechanism`, `Add application tests`, `Deploy application to cloud`, `Complete README and documentation`. Do not manufacture historical commits; use the day-wise plan in `docs/proof-plan.md` as a forward plan.
-
 ## Learning outcomes
 
 You can explain client/server design, REST, token authentication, data ownership, structured database vs object storage, fallback behavior, managed cloud services, environment secrets, testing, and the difference between a locally simulated service and an actually deployed service.
