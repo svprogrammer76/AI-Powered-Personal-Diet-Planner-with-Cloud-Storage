@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     supabase_service_role_key: str = ""
     openai_api_key: str = ""
     openai_model: str = "gpt-4o-mini"
+    gemini_api_key: str = ""
+    gemini_model: str = "gemini-3.1-flash-lite"
+    gnani_api_key: str = ""
+    gnani_tts_model: str = "timbre-v3.0"
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

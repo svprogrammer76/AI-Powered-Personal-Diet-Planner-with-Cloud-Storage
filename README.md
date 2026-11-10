@@ -51,12 +51,14 @@ See [architecture and cloud concept map](docs/architecture.md) for deployment ma
 ## Features
 
 - Registration, login, logout, protected dashboard, and user-specific data.
+- Voice meal Q&A: Gnani Prisma transcribes a short recording, the user can edit the transcript, Gemini returns a short general-wellness answer, and Gnani Timbre generates playable speech.
 - Profile fields: name, age, height, weight, activity, food preference, general goal, optional foods to avoid.
 - Breakfast, lunch, snack, dinner, general nutrition note, hydration reminder, and visible educational disclaimer.
 - Vegetarian, vegan, or general recommendations; balanced, weight-management demo, or fitness-oriented demo goal.
 - Rule-based engine always available; optional server-side AI API with schema checks and deterministic fallback.
 - Save/list/read/delete plans, export plans as Markdown, and upload/list/download/delete optional JPEG, PNG, or WebP images.
 - SQLite/filesystem local simulation, or Supabase Auth/Postgres/private Storage cloud integration.
+- Voice Q&A keeps `GNANI_API_KEY` and `GEMINI_API_KEY` on the backend; the browser only sends audio to FastAPI and receives transcript/reply text.
 - API validation, password hashing in local demo mode, per-user access checks, CORS settings, upload limits, and automated API tests.
 
 ## Database and storage
@@ -132,6 +134,12 @@ cd frontend
 Copy-Item .env.example .env.local
 npx pnpm@11.19.0 install --frozen-lockfile
 npx pnpm@11.19.0 run dev
+```
+or
+```
+cd frontend
+npx.cmd pnpm@11.19.0 install
+npx.cmd pnpm@11.19.0 run dev
 ```
 
 Open `http://localhost:5173`, register a synthetic demo account, fill in a profile, generate a plan, upload a small image, and check saved plans/files. SQLite and uploads are created under `backend/data/`. Verify logout/login by signing out and back in. All data remains local in this mode.

@@ -10,6 +10,7 @@
 | `backend/requirements.txt` | Python API and test dependencies |
 | `backend/.env.example` | Local/cloud API settings template; copy to ignored `backend/.env` |
 | `backend/app/main.py` | REST routes, request validation flow, CORS, upload checks, safe service errors |
+| `backend/app/config.py` | Environment-based settings, including the server-only Gnani API key |
 | `backend/app/config.py` | Environment-based settings |
 | `backend/app/schemas.py` | Validated request/response models |
 | `backend/app/auth.py` | Local password hashing, JWT issue/verify, protected-user dependency |
@@ -27,6 +28,9 @@
 | `cloud/schema.sql` | Supabase tables, constraints, private bucket, and RLS policies |
 | `docs/architecture.md` | System design, cloud concept map, and scaling explanation |
 | `docs/project-report.md` | Course report draft |
+| `docs/day-1-voice.md` | Prisma voice request path, local setup, and deployment secret configuration |
+| `docs/day-2-gemini.md` | Transcript-to-Gemini Q&A flow, safety boundaries, and free-tier notes |
+| `docs/day-3-demo.md` | Timbre playback flow, synthetic-data demo run sheet, and challenge submission draft |
 | `docs/test-cases.md` | Test scenarios and honest observed status |
 | `docs/proof-plan.md` | Day-by-day forward development and commit plan |
 | `docs/screenshots.md` | Evidence capture checklist and filenames |
@@ -43,6 +47,7 @@ React browser ── sign-up/sign-in ──> FastAPI ──> Supabase Auth (clou
   │                                    ├──> profile / plan records (Postgres)
   │                                    ├──> optional AI provider
   │                                    │        └── error/invalid output → local rules
+  │                                    ├──> Gnani Prisma v3 (short audio transcription)
   │                                    └──> private object storage + file metadata
   └── dashboard, saved plans, profile, image uploads/downloads
 ```
@@ -92,6 +97,9 @@ Each protected request verifies an identity token. Routes use the verified subje
 6. Plan is stored under the authenticated subject and returned to the UI.
 7. Upload validates allowed image type, signature, and size; bytes go to an owner-specific private path and metadata to a relational table.
 8. Dashboard requests retrieve only the caller's records. Download is proxied through the API after ownership lookup.
+9. The authenticated `/transcribe` route validates a short mono PCM WAV and proxies it to Gnani Prisma v3. `GNANI_API_KEY` stays in the backend environment; the browser only receives the transcript text.
+10. The authenticated `/ask` route sends the edited question plus limited planner context to Gemini 3.1 Flash-Lite. `GEMINI_API_KEY` stays in the backend environment; errors are shown instead of fabricated replies.
+11. The authenticated `/speak` route sends only the visible reply text to Gnani Timbre v3.0 using the backend-only Gnani key, then returns WAV bytes for browser playback. Recordings and generated audio are not persisted.
 
 ## Security basics and risks
 

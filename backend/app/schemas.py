@@ -9,6 +9,15 @@ class Credentials(BaseModel):
     password: str = Field(min_length=8, max_length=128)
 
 
+class VoiceQuestion(BaseModel):
+    question: str = Field(min_length=1, max_length=2000)
+
+
+class VoiceSpeech(BaseModel):
+    text: str = Field(min_length=1, max_length=3000)
+    language: Literal["auto", "en-IN", "hi-IN"] = "auto"
+
+
 class Profile(BaseModel):
     name: str = Field(min_length=1, max_length=100)
     age: int = Field(ge=13, le=110)
